@@ -93,9 +93,11 @@ options {
 <% end -%>
 
 <% end -%>
-    dnssec-enable <%= @dnssec_enable %>;
     dnssec-validation <%= @dnssec_validation %>;
+<% if @os['name'] == 'RedHat' and @os['release']['major'].to_i < 10 -%>
+    dnssec-enable <%= @dnssec_enable %>;
     dnssec-lookaside <%= @dnssec_lookaside %>;
+<% end -%>
 
     /* Path to ISC DLV key */
     bindkeys-file "<%= @file_bindkeys %>";
