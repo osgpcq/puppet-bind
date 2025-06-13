@@ -125,9 +125,10 @@ define bind::server::conf (
 
   # OS Defaults
   include '::bind::params'
-  $file_hint = $::bind::params::file_hint
-  $file_rfc1912 = $::bind::params::file_rfc1912
-  $file_bindkeys = $::bind::params::file_bindkeys
+  $file_hint      = $::bind::params::file_hint
+  $file_rfc1912   = $::bind::params::file_rfc1912
+  $file_bindkeys  = $::bind::params::file_bindkeys
+  $bind9_18_depre = $::bind::params::bind9_18_depre
 
   # Everything is inside a single template
   file { $title:

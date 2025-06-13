@@ -93,9 +93,11 @@ options {
 <% end -%>
 
 <% end -%>
-    dnssec-validation <%= @dnssec_validation %>;
-<% if @os['name'] == 'RedHat' and @os['release']['major'].to_i < 10 -%>
+<% if !@bind9_18_depre -%>
     dnssec-enable <%= @dnssec_enable %>;
+<% end -%>
+    dnssec-validation <%= @dnssec_validation %>;
+<% if !@bind9_18_depre -%>
     dnssec-lookaside <%= @dnssec_lookaside %>;
 <% end -%>
 

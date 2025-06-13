@@ -15,6 +15,9 @@ class bind::params {
       } else {
         $file_bindkeys   = '/etc/named.iscdlv.key'
       }
+      if versioncmp($facts['os']['release']['major'], '10') >= 0 {
+        $bind9_18_depre  = true
+      }
     }
     'Debian': {
       $packagenameprefix = 'bind9'
